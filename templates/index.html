@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Monthsary, My Love! ❤️</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Your CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="hearts-container"></div>
+    <button id="musicToggle" onclick="toggleMusic()">
+        <i class="fas fa-volume-mute"></i>
+    </button>
+    <div class="container">
+        <h1>Happy 4th Monthsary! <i class="fas fa-heart"></i> 🌸</h1>
+        <h3>Countdown to Our 5th Monthsary 💜</h3>
+        <div class="countdown-container" id="countdown">
+            <!-- Countdown will be inserted here -->
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-wrapper">
+                <div class="gallery">
+                    <!-- Gallery images will be added here -->
+                </div>
+                <button class="gallery-nav prev" onclick="prevSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="gallery-nav next" onclick="nextSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="gallery-dots">
+                <!-- Dots will be added dynamically -->
+            </div>
+        </div>
+        <div class="personal-message">
+            <p>Hi honey! Today's our 4th monthsary but also your pup examination. Please always know that I'm your biggest supporter. 💜</p>
+            <p>Thank you for always being there for me, kaya always remember na I will always be there with you. Those dreams of you of me leaving? They're only a manifestation of the opposite of what's actually going to happen. 🌸</p>
+            <p>I love you sososoososos much. I've said it before and I'll say it again, I'm marrying you Princess. 💜</p>
+        </div>
+        <div class="special-message">
+            Here's to many more months of love and happiness together! <i class="fas fa-heart"></i> 🌸
+        </div>
+    </div>
+    <!-- JavaScript files -->
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/audio.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/countdown.js') }}"></script>
+    <script>
+        // Initialize gallery with images from server
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = {{ images|tojson|safe }};
+            initGallery(images);
+        });
+    </script>
+</body>
+</html>
